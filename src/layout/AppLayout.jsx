@@ -29,7 +29,7 @@ const AppLayout = () => {
               <Nav.Link href="/searchResult" onClick={(e) => handleNavigation(e, '/searchResult')}>SearchResult</Nav.Link>
 
             </Nav>
-            
+            <span className="appLayout-login-button" onClick={(e) => handleNavigation(e, '/login')}>Login</span>
           </Navbar.Collapse>
         </Container>
       </Navbar>
