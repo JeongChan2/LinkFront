@@ -4,9 +4,11 @@ import { Button, Col, Container, Dropdown, DropdownButton, Form, Row } from "rea
 import { useNavigate } from "react-router-dom";
 import Tag from "../Homepage/component/Tag/Tag";
 import SearchResultBox from "./component/SearchResultBox/SearchResultBox";
+import ReactPaginate from 'react-paginate';
 
 const SearchResultPage = () => {
   const [keyword, setKeyword] = useState("");
+  const [page, setPage] = useState(1);
   const navigate = useNavigate();
 
   const searchByKeyword = (event) => {
@@ -19,6 +21,10 @@ const SearchResultPage = () => {
 
     setKeyword("");
   };
+
+  const handlePageClick = ({selected}) => {
+    setPage(selected + 1);
+  }
 
   return (
     <>
@@ -82,6 +88,35 @@ const SearchResultPage = () => {
           </Row>
 
           <SearchResultBox/>
+          <SearchResultBox/>
+          <SearchResultBox/>
+          <SearchResultBox/>
+          
+          <Row>
+            <Col className="searchResult-pagination">
+              <ReactPaginate
+                nextLabel="next >"
+                onPageChange={handlePageClick}
+                pageRangeDisplayed={3}
+                marginPagesDisplayed={2}
+                pageCount={68} // 전체 페이지가 몇개 ?
+                previousLabel="< previous"
+                pageClassName="page-item"
+                pageLinkClassName="page-link"
+                previousClassName="page-item"
+                previousLinkClassName="page-link"
+                nextClassName="page-item"
+                nextLinkClassName="page-link"
+                breakLabel="..."
+                breakClassName="page-item"
+                breakLinkClassName="page-link"
+                containerClassName="pagination"
+                activeClassName="active"
+                renderOnZeroPageCount={null}
+                forcePage={page-1}
+              />
+            </Col>
+          </Row>
 
         </Container>
       </div>

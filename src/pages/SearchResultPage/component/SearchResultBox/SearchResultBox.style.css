@@ -1,13 +1,19 @@
+.searchResultBox-container {
+  margin-top: 20px;
+}
+
 .searchResultBox-util {
   background-color: rgb(190, 190, 190);
   margin-left: 5px;
   display: flex;
   justify-content: space-between;
+  cursor: pointer;
 }
 
 .searchResultBox-box {
   margin-top: 5px;
   background-color: rgb(190, 190, 190);
+  border-radius: 5px;
 }
 
 .searchResultBox-hashTag {
@@ -41,11 +47,17 @@
   background-color: rgb(255, 174, 174);
   padding-left: 10px;
   padding-right: 10px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  cursor: pointer;
 }
 
 .searchResultBox-copy {
   padding-left: 10px;
   padding-right: 10px;
+  font-size: 2rem;
+  cursor: pointer;
 }
 
 .searchResultBox-info {
