@@ -1,0 +1,74 @@
+.searchResultBox-container {
+  margin-top: 20px;
+}
+
+.searchResultBox-util {
+  background-color: rgb(190, 190, 190);
+  margin-left: 5px;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.searchResultBox-box {
+  margin-top: 5px;
+  background-color: rgb(190, 190, 190);
+  border-radius: 5px;
+}
+
+.searchResultBox-hashTag {
+  margin-top: 10px;
+}
+
+.searchResultBox-hashTag > span {
+  margin-right: 5px;
+  background-color: white;
+  border-radius: 10px;
+  padding: 3px;
+}
+
+.searchResultBox-title {
+  font-weight: 700;
+}
+
+.searchResultBox-sectionA {
+  display: flex;
+  justify-content: space-between;
+}
+
+.searchResultBox-sectionB {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.searchResultBox-click {
+  background-color: rgb(255, 174, 174);
+  padding-left: 10px;
+  padding-right: 10px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.searchResultBox-copy {
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.searchResultBox-info {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.searchResultBox-date {
+  text-align: right;
+}
+
+.searchResultBox-content {
+  width: 80%;
+}

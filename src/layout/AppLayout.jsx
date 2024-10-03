@@ -1,27 +1,12 @@
 import React, { useState } from "react";
-import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
-import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Outlet, useNavigate } from "react-router-dom";
 import "./AppLayout.style.css"
 
 const AppLayout = () => {
-  const [keyword, setKeyword] = useState("");
   const navigate = useNavigate();
-
-  const searchByKeyword = (event) => {
-    event.preventDefault();
-    if(keyword === ""){
-      navigate(``);
-    }
-    else{
-      navigate(``);
-    }
-      
-    setKeyword("");
-  }
 
   const handleNavigation = (event, path) => {
     event.preventDefault();
@@ -41,20 +26,10 @@ const AppLayout = () => {
               navbarScroll
             >
               <Nav.Link href="/" onClick={(e) => handleNavigation(e, '/')}>Home</Nav.Link>
-              <Nav.Link href="/" onClick={(e) => handleNavigation(e, '/')}>Home</Nav.Link>
+              <Nav.Link href="/searchResult" onClick={(e) => handleNavigation(e, '/searchResult')}>SearchResult</Nav.Link>
 
             </Nav>
-            <Form className="d-flex" onSubmit={searchByKeyword}>
-              <Form.Control
-                type="search"
-                placeholder="Search"
-                className="me-2"
-                aria-label="Search"
-                value={keyword}
-                onChange={(event) => setKeyword(event.target.value)}
-              />
-              <Button type="submit" variant="outline-danger" className="">Search</Button>
-            </Form>
+            <span className="appLayout-login-button" onClick={(e) => handleNavigation(e, '/login')}>Login</span>
           </Navbar.Collapse>
         </Container>
       </Navbar>
