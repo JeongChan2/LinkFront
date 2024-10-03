@@ -1,0 +1,33 @@
+.home-text {
+  font-weight: 900;
+  color: white;
+  font-size: 3rem;
+}
+
+.home-container {
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.top-home-container {
+  height: 100vh;
+  background-color: gray;
+}
+
+.home-dropdown-button {
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  width: 60%;
+}
+
+.home-searchBox {
+  width: 60%;
+}
+
+.home-tagBox {
+  width: 62%;
+
+}
