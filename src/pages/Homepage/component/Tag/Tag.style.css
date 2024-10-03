@@ -1,0 +1,23 @@
+.tag-container {
+  background-color: rgb(59, 59, 59);
+  border-radius: 10px;
+  margin: 1rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.5rem;
+}
+
+.tag-name {
+  color: white;
+  margin-right: auto;
+}
+
+.tag-button {
+  color: white;
+  margin-left: auto;
+  background: none;
+  border: none;
+}
