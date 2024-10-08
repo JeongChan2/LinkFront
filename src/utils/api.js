@@ -1,13 +1,14 @@
 import axios from "axios";
 
-const API_KEY = process.env.REACT_APP_API_KEY;
+// const API_KEY = process.env.REACT_APP_API_KEY;
 
 const api = axios.create({
   baseURL:"http://13.125.100.28:8080",
   headers:{
     accept: 'application/json',
     // Authorization: `Bearer ${API_KEY}`
-  }
+  },
+  withCredentials: true, // HTTP-only 쿠키 전송
 });
 
 // 요청 인터셉터 추가하기

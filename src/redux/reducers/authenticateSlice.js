@@ -8,7 +8,6 @@ const id = useSelector((state) => state.auth.id);
 
 let initialState = {
   id:'',
-  password:'',
   authenticate:false
 }
 
@@ -23,12 +22,10 @@ const authenticateSlice = createSlice({
   reducers:{
     LoginSuccess(state,action) {
       state.id = action.payload.id;
-      state.password = action.payload.password;
       state.authenticate = true;
     },
     LogoutSuccess(state) {
       state.id = '';
-      state.password = '';
       state.authenticate = false;
     },
   },
