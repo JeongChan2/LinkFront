@@ -1,15 +1,33 @@
 import React, { useState } from "react";
 import "./SearchResultPage.style.css";
-import { Button, Col, Container, Dropdown, DropdownButton, Form, Row } from "react-bootstrap";
+import { Alert, Button, Col, Container, Dropdown, DropdownButton, Form, Row } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import Tag from "../Homepage/component/Tag/Tag";
 import SearchResultBox from "./component/SearchResultBox/SearchResultBox";
 import ReactPaginate from 'react-paginate';
+import { useLinkSearchQuery } from "../../hooks/useLinkSearchResult";
 
 const SearchResultPage = () => {
   const [keyword, setKeyword] = useState("");
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(0);
   const navigate = useNavigate();
+
+  const {
+    data: links,
+    isLoading,
+    isError,
+    error,
+  } = useLinkSearchQuery({ page });
+
+  if (isLoading) {
+    return <h1>Loading...</h1>;
+  }
+
+  if (isError) {
+    return <Alert variant="danger">{error.message}</Alert>;
+  }
+
+  console.log(links);
 
   const searchByKeyword = (event) => {
     event.preventDefault();
@@ -23,7 +41,7 @@ const SearchResultPage = () => {
   };
 
   const handlePageClick = ({selected}) => {
-    setPage(selected + 1);
+    setPage(selected);
   }
 
   return (
@@ -87,10 +105,11 @@ const SearchResultPage = () => {
             </Col>
           </Row>
 
-          <SearchResultBox/>
-          <SearchResultBox/>
-          <SearchResultBox/>
-          <SearchResultBox/>
+          {links?.links?.map((link,index) => {
+            return (
+              <SearchResultBox link={link} key={index}/>
+            );
+          })}
           
           <Row>
             <Col className="searchResult-pagination">
@@ -99,7 +118,7 @@ const SearchResultPage = () => {
                 onPageChange={handlePageClick}
                 pageRangeDisplayed={3}
                 marginPagesDisplayed={2}
-                pageCount={68} // 전체 페이지가 몇개 ?
+                pageCount={links?.totalPages} // 전체 페이지가 몇개 ?
                 previousLabel="< previous"
                 pageClassName="page-item"
                 pageLinkClassName="page-link"
@@ -113,7 +132,7 @@ const SearchResultPage = () => {
                 containerClassName="pagination"
                 activeClassName="active"
                 renderOnZeroPageCount={null}
-                forcePage={page-1}
+                forcePage={page}
               />
             </Col>
           </Row>
