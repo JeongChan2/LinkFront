@@ -7,14 +7,14 @@ import { authActions } from './../redux/reducers/authenticateSlice';
 let id = null;
 
 // 회원가입 API 호출 함수
-const signUp = async ({ username, password }) => {
+const signIn = async ({ username, password }) => {
   id = username;
-  const response = await api.post('/sign-up', { username, password });
+  const response = await api.post('/login', { username, password });
   return response;
 };
 
 // useMutation 훅
-export const useSignUpMutation = () => {
+export const useSignInMutation = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -24,7 +24,7 @@ export const useSignUpMutation = () => {
   }
 
   return useMutation({
-    mutationFn: (newUser) => signUp(newUser),
+    mutationFn: (newUser) => signIn(newUser),
     onSuccess: (response) => {
       // console.log(response)
       const { accessToken } = response.data;  // 서버 응답에서 accessToken 추출

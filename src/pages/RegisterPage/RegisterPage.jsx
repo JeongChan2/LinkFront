@@ -15,7 +15,7 @@ const RegisterPage = () => {
   // }
 
   const handleSubmit = (e) => {
-    e.preventDefault(); // 폼 기본 동작 방지
+    e.preventDefault();
     signUp({ username, email, password }); // 회원가입 요청
   };
 
@@ -31,7 +31,7 @@ const RegisterPage = () => {
             onChange={(e) => setUserName(e.target.value)}
           />
         </Form.Group>
-        {/** 비밀번호 에러 발생 시 */}
+        {/** id 중복 에러 발생 시 */}
         {error?.response?.data?.code === 1010 ? (
           <Alert key="warning" variant="warning">
             {error?.response?.data?.message}
