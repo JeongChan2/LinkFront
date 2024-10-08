@@ -1,3 +1,7 @@
 .appLayout-login-button {
   cursor: pointer;
 }
+
+.appLayout-login-id {
+  margin-right: 1rem;
+}
